@@ -5,7 +5,6 @@ from transformers import pipeline, AutoTokenizer, AutoModelForSequenceClassifica
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# 💾 Cache model
 @st.cache_resource
 def load_model():
     model_name = "cardiffnlp/twitter-xlm-roberta-base-sentiment"
@@ -13,7 +12,6 @@ def load_model():
     model = AutoModelForSequenceClassification.from_pretrained(model_name)
     return pipeline("sentiment-analysis", model=model, tokenizer=tokenizer, return_all_scores=True)
 
-# 🔍 Predict sentiment
 def predict_sentiment(text, pipe):
     try:
         scores = pipe(text)[0]
@@ -23,7 +21,6 @@ def predict_sentiment(text, pipe):
         st.error(f"❌ Prediction Error: {str(e)}")
         return None, None
 
-# 📊 Bar chart
 def plot_bar_chart(scores):
     df = pd.DataFrame(scores)
     fig, ax = plt.subplots()
@@ -33,7 +30,6 @@ def plot_bar_chart(scores):
     ax.set_title("📊 Sentiment Scores")
     st.pyplot(fig)
 
-# 🥧 Pie chart
 def plot_pie_chart(scores):
     df = pd.DataFrame(scores)
     fig, ax = plt.subplots()
@@ -41,11 +37,9 @@ def plot_pie_chart(scores):
     ax.set_title("🧩 Sentiment Breakdown")
     st.pyplot(fig)
 
-# 🚀 Main App
 def main():
-    st.set_page_config(page_title="Hustle's Multilingual Sentiment Analyzer", page_icon="🌍", layout="centered")
+    st.set_page_config(page_title="Multilingual Sentiment Analyzer", page_icon="🌍", layout="centered")
     st.markdown("<h1 style='text-align: center; color: #00A36C;'>🌍 Multilingual Sentiment Analyzer</h1>", unsafe_allow_html=True)
-    st.markdown("##### Built with 🤗 Transformers Model)
 
     st.divider()
     try:
@@ -71,8 +65,6 @@ def main():
                     plot_pie_chart(scores)
         else:
             st.warning("⚠️ Please enter some text to analyze.")
-
-    st.markdown("<hr><center><small>Made with ❤️ using Streamlit & Hugging Face</small></center>", unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
