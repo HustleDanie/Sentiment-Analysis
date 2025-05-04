@@ -43,9 +43,9 @@ def plot_pie_chart(scores):
 
 # 🚀 Main App
 def main():
-    st.set_page_config(page_title="Multilingual Sentiment Analyzer", page_icon="🌍", layout="centered")
+    st.set_page_config(page_title="Hustle's Multilingual Sentiment Analyzer", page_icon="🌍", layout="centered")
     st.markdown("<h1 style='text-align: center; color: #00A36C;'>🌍 Multilingual Sentiment Analyzer</h1>", unsafe_allow_html=True)
-    st.markdown("##### Built with 🤗 Transformers • Model: `cardiffnlp/twitter-xlm-roberta-base-sentiment`")
+    st.markdown("##### Built with 🤗 Transformers Model)
 
     st.divider()
     try:
