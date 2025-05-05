@@ -39,7 +39,7 @@ def plot_pie_chart(scores):
 
 def main():
     st.set_page_config(page_title="Multilingual Sentiment Analyzer", page_icon="🌍", layout="centered")
-    st.markdown("<h1 style='text-align: center; color: #00A36C;'>🌍 Multilingual Sentiment Analyzer</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; color: #00008B;'>Multilingual Sentiment Analyzer</h1>", unsafe_allow_html=True)
 
     st.divider()
     try:
